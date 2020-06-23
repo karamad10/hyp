@@ -13,7 +13,7 @@ const Home = () => {
   const { state, dispatch } = useContext(AuthContext);
   const [isAdmin, setIsAdmin] = useState(false);
 
-  const { avatar_url, name, login } = state?.user;
+  const { avatar_url, name, login } = state.user ? state.user : {};
 
   useEffect(() => {
     ADMINS.includes(login) ? setIsAdmin(true) : setIsAdmin(false);
