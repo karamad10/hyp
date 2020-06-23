@@ -3,50 +3,21 @@ import { Redirect } from "react-router-dom";
 import Styled from "styled-components";
 
 // components
-import { AuthContext } from "../App";
-import AdminViewContainer from "./view/admin/AdminViewContainer";
-import StudentViewContainer from "./view/student/StudentViewContainer";
-
-const ADMINS = ["karamad10", "NoerGitKat", "wouterkleijn", "fede", "Tjebbee"];
+import { AuthContext } from "../../../App";
 
 const Home = () => {
   const { state, dispatch } = useContext(AuthContext);
-  const [isAdmin, setIsAdmin] = useState(false);
+  console.log(state);
 
-  const { avatar_url, name, login } = state.user;
-
-  useEffect(() => {
-    ADMINS.includes(login) ? setIsAdmin(true) : setIsAdmin(false);
-  }, [login]);
-
-  if (!state.isLoggedIn) {
-    return <Redirect to="/login" />;
-  }
-
-  console.table(state.user);
-
-  const handleLogout = () => {
-    dispatch({
-      type: "LOGOUT",
-    });
-  };
+  console.table(state);
 
   return (
     <Wrapper>
       <div className="container">
-        <button onClick={() => handleLogout()}>Logout</button>
         <div>
-          <div className="content">
-            <img src={avatar_url} alt="Avatar" />
-            <span>{name}</span>
-            <span>
-              Admin{" "}
-              <span style={{ color: "red" }}>{JSON.stringify(isAdmin)}</span>
-            </span>
-          </div>
+          <div className="content">CONTENT</div>
         </div>
       </div>
-      {isAdmin ? <AdminViewContainer /> : <StudentViewContainer />}
     </Wrapper>
   );
 };
@@ -55,7 +26,7 @@ const Wrapper = Styled.section`
 .container{
   display: flex;
   flex-direction: column;
-  height: 30vh;
+  height: 60vh;
   font-family: Arial;
   button{
     all: unset;

@@ -1,6 +1,6 @@
 {
-  "name": "begin-app",
-  "description": "Begin Create React App + API",
+  "name": "HYP",
+  "description": "HYP App",
   "version": "0.0.0",
   "proxy": "http://localhost:3333",
   "dependencies": {
