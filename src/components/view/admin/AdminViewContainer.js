@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Redirect } from "react-router-dom";
+import React, { useContext } from "react";
 import Styled from "styled-components";
 
 // components
 import { AuthContext } from "../../../App";
 
 const Home = () => {
-  const { state, dispatch } = useContext(AuthContext);
+  const { state } = useContext(AuthContext);
   console.log(state);
 
   console.table(state);
