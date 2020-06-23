@@ -4,7 +4,7 @@ import Styled from "styled-components";
 // components
 import { AuthContext } from "../../../App";
 
-const Home = () => {
+const AdminViewContainer = () => {
   const { state } = useContext(AuthContext);
   console.log(state);
 
@@ -14,7 +14,7 @@ const Home = () => {
     <Wrapper>
       <div className="container">
         <div>
-          <div className="content">CONTENT</div>
+          <div className="content">ADMIN CONTENT</div>
         </div>
       </div>
     </Wrapper>
@@ -78,4 +78,4 @@ const Wrapper = Styled.section`
 }
 `;
 
-export default Home;
+export default AdminViewContainer;
