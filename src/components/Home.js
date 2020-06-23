@@ -19,7 +19,7 @@ const Home = () => {
     ADMINS.includes(login) ? setIsAdmin(true) : setIsAdmin(false);
   }, [login]);
 
-  if (!state.isLoggedIn) {
+  if (!state.isLoggedIn || !state.user) {
     return <Redirect to="/login" />;
   }
 
