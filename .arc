@@ -1,11 +1,11 @@
 @app
-begin-app
+hyp
 
 @static
 folder build
 
 @http
-get /https://jsonplaceholder.typicode.com/todos/1
+get /api
 
 @tables
 data
