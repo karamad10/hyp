@@ -23,8 +23,6 @@ const Home = () => {
     return <Redirect to="/login" />;
   }
 
-  console.table(state.user);
-
   const handleLogout = () => {
     dispatch({
       type: "LOGOUT",
@@ -55,8 +53,8 @@ const Wrapper = Styled.section`
 .container{
   display: flex;
   flex-direction: column;
-  height: 30vh;
   font-family: Arial;
+  padding: 20px;
   button{
     all: unset;
     width: 100px;
@@ -85,7 +83,6 @@ const Wrapper = Styled.section`
       flex-direction: column;
       padding: 20px 100px;    
       box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
-      width: auto;
   
       img{
         height: 150px;

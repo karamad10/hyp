@@ -8,8 +8,6 @@ const AdminViewContainer = () => {
   const { state } = useContext(AuthContext);
   console.log(state);
 
-  console.table(state);
-
   return (
     <Wrapper>
       <div className="container">
@@ -24,9 +22,6 @@ const AdminViewContainer = () => {
 const Wrapper = Styled.section`
 .container{
   display: flex;
-  flex-direction: column;
-  height: 60vh;
-  font-family: Arial;
   button{
     all: unset;
     width: 100px;
@@ -44,35 +39,13 @@ const Wrapper = Styled.section`
     }
   }
   >div{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    font-size: 18px;
-    justify-content: center;
-    align-items: center;
     .content{
       display: flex;
       flex-direction: column;
       padding: 20px 100px;    
       box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
-      width: auto;
-  
-      img{
-        height: 150px;
-        width: 150px;
-        border-radius: 50%;
-      }
-  
-      >span:nth-child(2){
-        margin-top: 20px;
-        font-weight: bold;
-      }
-  
-      >span:not(:nth-child(2)){
-        margin-top: 8px;
-        font-size: 14px;
-      }
-  
+      height: 60vh;
+      width: 100%;
     }
   }
 }

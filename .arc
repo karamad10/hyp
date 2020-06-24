@@ -5,7 +5,7 @@ begin-app
 folder build
 
 @http
-get /api
+get /https://jsonplaceholder.typicode.com/todos/1
 
 @tables
 data
