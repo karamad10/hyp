@@ -1,0 +1,9 @@
+{
+    "workbench.colorCustomizations": {
+        "[Noctis Obscuro]": {
+            "foreground": "#c1d5d7",
+            "descriptionForeground": "#a0aaac",
+            "selection.background": "#169eb2"
+        }
+    }
+}

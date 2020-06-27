@@ -5,7 +5,8 @@ hyp
 folder build
 
 @http
-get /api
+get /login
+get /https://github.com/login
 
 @tables
 data
