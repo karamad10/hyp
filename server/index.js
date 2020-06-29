@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/public/index.html"));
+  res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
 // Enabled Access-Control-Allow-Origin", "*" in the header so as to by-pass the CORS error.
