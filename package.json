@@ -12,13 +12,14 @@
     "nodemon": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-linkify": "^1.0.0-alpha",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "styled-components": "^5.1.1",
     "tiny": "0.0.10"
   },
   "scripts": {
-    "start": "run-p start:react api",
+    "start": "run-p start:react",
     "start:react": "react-scripts start",
     "build": "react-scripts build",
     "test:i": "react-scripts test",

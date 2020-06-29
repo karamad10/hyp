@@ -1,21 +1,123 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import axios from "axios";
 import Styled from "styled-components";
 
 // components
 import { AuthContext } from "../../../App";
+import Student from "./Student";
 
 const AdminViewContainer = () => {
   const { state } = useContext(AuthContext);
-  console.log(state);
+  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedOptionData, setSelectedOptionData] = useState({});
+
+  console.log("selectedOption", selectedOption);
+
+  const [repositoriesData, setRepositoriesData] = useState({});
+  const [users, setUsers] = useState([]);
+  console.log("AdminViewContainer -> users", users);
+
+  console.log("repositoriesData", repositoriesData);
+  function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+  }
+  useEffect(() => {
+    async function getUser() {
+      try {
+        // get repos based on selected
+        const repositories = await axios.get(
+          `https://api.github.com/repos/HackYourHomework/${selectedOption}`
+        );
+        console.log(repositories);
+        const {
+          comments_url,
+          commits_url,
+          issues_url,
+          pulls_url,
+        } = repositories.data;
+        // find user and map his pull requests
+        const selectedOptionData = await axios.get(
+          `https://api.github.com/repos/HackYourHomework/${selectedOption}/pulls`
+        );
+
+        const people = selectedOptionData.data
+          .map(({ user }) => user.login)
+          .filter(onlyUnique);
+        console.log("people=>", people);
+        console.log("s");
+
+        console.log("selectedOptionData=>", selectedOptionData);
+        console.log("people=>", people);
+        setUsers(people);
+        setRepositoriesData(repositories.data);
+        setSelectedOptionData(selectedOptionData);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getUser();
+  }, [selectedOption, state.user.login]);
+
+  // styled components
+  const Container = Styled.section`
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 95%;
+  `;
+
+  const Card = Styled.div`
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  `;
+
+  const Button = Styled.button`
+      width: 4rem;
+      height: 2rem;
+      border: 2px solid teal;
+      border-radius: 3px;
+      background: white;
+  `;
+
+  const Image = Styled.img`
+      width: 7rem;
+      height: 7rem;
+      margin-right: 1rem;
+      border-radius: 20%;
+  `;
+
+  const Span = Styled.span`
+    width: 100%;
+    display: flex;
+    padding-bottom: 5px;
+  `;
 
   return (
-    <Wrapper>
-      <div className="container">
-        <div>
-          <div className="content">ADMIN CONTENT</div>
-        </div>
-      </div>
-    </Wrapper>
+    <>
+      <Container>
+        <Card>
+          <select onChange={(e) => setSelectedOption(e.target.value)}>
+            <optgroup>
+              <option value="">select module</option>
+              <option value="Node.js">Node</option>
+              <option value="JavaScript3">JavaScript</option>
+              <option value="React">React</option>
+              <option value="post-grad-ed">Post-grad project</option>
+            </optgroup>
+          </select>
+        </Card>
+
+        <br />
+        <Student
+          githubUsername={state.user.login}
+          selectedRepo={selectedOption}
+          repositoriesData={repositoriesData}
+          selectedOptionData={selectedOptionData}
+          users={users}
+        />
+      </Container>
+    </>
   );
 };
 

@@ -60,7 +60,6 @@ export default function Login() {
       <section className="container">
         <div>
           <h1>Welcome</h1>
-          <span>Super amazing app</span>
           <span>{data.errorMessage}</span>
           <div className="login-container">
             {data.isLoading ? (
@@ -69,9 +68,6 @@ export default function Login() {
               </div>
             ) : (
               <>
-                {
-                  // Link to request GitHub access
-                }
                 <a
                   className="login-link"
                   href={`https://github.com/login/oauth/authorize?scope=user&client_id=${client_id}&redirect_uri=${redirect_uri}`}

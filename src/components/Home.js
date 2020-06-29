@@ -29,23 +29,61 @@ const Home = () => {
     });
   };
 
+  // styled components
+  const Container = Styled.section`
+    display: flex;
+    padding: 2rem;
+    flex-direction: column;
+    height: 100%;
+    width: 95%;
+  `;
+
+  const Card = Styled.div`
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  `;
+
+  const Button = Styled.button`
+      width: 4rem;
+      height: 2rem;
+      border: 2px solid teal;
+      border-radius: 3px;
+      background: white;
+      &:hover {
+        cursor: pointer;
+      }
+  `;
+
+  const Image = Styled.img`
+      width: 7rem;
+      height: 7rem;
+      margin-right: 1rem;
+      border-radius: 20%;
+  `;
+
+  const Span = Styled.span`
+    width: 100%;
+    display: flex;
+    padding-bottom: 5px;
+  `;
+
   return (
-    <Wrapper>
-      <div className="container">
-        <button onClick={() => handleLogout()}>Logout</button>
+    <Container>
+      <Card>
         <div>
-          <div className="content">
-            <img src={avatar_url} alt="Avatar" />
-            <span>{name}</span>
-            <span>
-              Admin{" "}
-              <span style={{ color: "red" }}>{JSON.stringify(isAdmin)}</span>
-            </span>
-          </div>
+          <Image src={avatar_url} alt="Avatar" />
         </div>
-      </div>
+        <div>
+          <Span>{name}</Span>
+          <Span>
+            <Span style={{ color: "red" }}>{isAdmin ? "ADMIN" : ""}</Span>
+          </Span>
+          <Button onClick={() => handleLogout()}>Logout</Button>
+        </div>
+      </Card>
       {isAdmin ? <AdminViewContainer /> : <StudentViewContainer />}
-    </Wrapper>
+    </Container>
   );
 };
 
