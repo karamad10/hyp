@@ -21,7 +21,7 @@
   "scripts": {
     "start": "run-p start:react",
     "start:react": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build CI=false",
     "test:i": "react-scripts test",
     "eject": "react-scripts eject",
     "api": "cross-env NODE_ENV=testing ARC_LOCAL=1 npx sandbox",
