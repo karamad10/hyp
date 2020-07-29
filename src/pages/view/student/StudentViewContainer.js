@@ -6,7 +6,7 @@ import { AuthContext } from "../../../App";
 
 const StudentViewContainer = () => {
   const { state } = useContext(AuthContext);
-  console.log(state);
+  // console.log(state);
 
   return (
     <Wrapper>

@@ -11,13 +11,11 @@ const AdminViewContainer = () => {
   const [selectedOption, setSelectedOption] = useState("");
   const [selectedOptionData, setSelectedOptionData] = useState({});
 
-  console.log("selectedOption", selectedOption);
-
   const [repositoriesData, setRepositoriesData] = useState({});
   const [users, setUsers] = useState([]);
-  console.log("AdminViewContainer -> users", users);
+  // console.log("AdminViewContainer -> users", users);
 
-  console.log("repositoriesData", repositoriesData);
+  // console.log("repositoriesData", repositoriesData);
   function onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
   }
@@ -28,7 +26,7 @@ const AdminViewContainer = () => {
         const repositories = await axios.get(
           `https://api.github.com/repos/HackYourHomework/${selectedOption}`
         );
-        console.log(repositories);
+        // console.log(repositories);
         const {
           comments_url,
           commits_url,
@@ -43,11 +41,6 @@ const AdminViewContainer = () => {
         const people = selectedOptionData.data
           .map(({ user }) => user.login)
           .filter(onlyUnique);
-        console.log("people=>", people);
-        console.log("s");
-
-        console.log("selectedOptionData=>", selectedOptionData);
-        console.log("people=>", people);
         setUsers(people);
         setRepositoriesData(repositories.data);
         setSelectedOptionData(selectedOptionData);
@@ -100,10 +93,36 @@ const AdminViewContainer = () => {
           <select onChange={(e) => setSelectedOption(e.target.value)}>
             <optgroup>
               <option value="">select module</option>
-              <option value="Node.js">Node</option>
-              <option value="JavaScript3">JavaScript</option>
-              <option value="React">React</option>
-              <option value="post-grad-ed">Post-grad project</option>
+              <option selected={selectedOption === "Node.js"} value="Node.js">
+                Node
+              </option>
+              <option
+                selected={selectedOption === "JavaScript1"}
+                value="JavaScript1"
+              >
+                JavaScript1
+              </option>
+              <option
+                selected={selectedOption === "JavaScript1"}
+                value="JavaScript1"
+              >
+                JavaScript1
+              </option>
+              <option
+                selected={selectedOption === "JavaScript3"}
+                value="JavaScript3"
+              >
+                JavaScript3
+              </option>
+              <option selected={selectedOption === "React"} value="React">
+                React
+              </option>
+              <option
+                selected={selectedOption === "post-grad-ed"}
+                value="post-grad-ed"
+              >
+                Post-grad project
+              </option>
             </optgroup>
           </select>
         </Card>
