@@ -1,14 +1,5 @@
 [![Begin build status](https://buildstatus.begin.app/dimsum-1o7/status.svg)](https://begin.com)
 
-[Create React App](https://create-react-app.dev/)'s starter app, extended by [Begin](https://begin.com)-based API endpoints.
-
-## Deploy your own
-
-[![Deploy to Begin](https://static.begin.com/deploy-to-begin.svg)](https://begin.com/apps/create?template=https://github.com/begin-examples/node-create-react-app)
-
-Deploy your own clone of this app to Begin!
-
-## Available Scripts
 
 In the project directory, you can run:
 
