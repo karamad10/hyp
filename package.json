@@ -5,7 +5,7 @@
   "proxy": "http://localhost:3333",
   "dependencies": {
     "architect": "^0.1.13",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "express": "^4.17.1",
     "mdi-react": "^7.3.0",
     "node-fetch": "^2.6.0",
